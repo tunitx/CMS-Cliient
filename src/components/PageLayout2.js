@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css'
+import { Link } from 'react-router-dom';
 
 const PageLayout = () => {
   const [data, setData] = useState([[]]);
   const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
-    axios.post('http://localhost:3000/webhook')
+    axios.post('https://cms-api-a10g.onrender.com/webhook')
       .catch(error => console.error('Error:', error));
     const ws = new WebSocket('ws://localhost:8080');
 
@@ -38,7 +39,7 @@ const PageLayout = () => {
       <div class="section-top" id="section-12685">
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
           <div class="container">
-            <a class="navbar-brand" href="/">KRN</a>
+            <Link class="navbar-brand" to="/">KRN</Link>
             <form action="#" class="searchform order-sm-start order-lg-last">
               <div class="form-group d-flex">
 
